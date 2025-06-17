@@ -1,18 +1,13 @@
-FROM node:22-slim AS builder
+FROM node:22-alpine
 
-RUN corepack enable && corepack prepare pnpm@10.12.1 --activate
 WORKDIR /app
 
-COPY package.json pnpm-lock.yaml ./
-RUN pnpm install --frozen-lockfile
+COPY package*.json ./
+
+RUN npm install
 
 COPY . .
-RUN pnpm run build
 
-FROM node:22-slim
-RUN corepack enable && corepack prepare pnpm@10.12.1 --activate
-WORKDIR /app
-COPY --from=builder /app /app
-ENV NODE_ENV=production
-EXPOSE 3000
-CMD ["pnpm","run","start"]
+RUN npm run build
+
+CMD ["npm","run","start"]
