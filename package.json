@@ -1,0 +1,31 @@
+{
+  "name": "mcp-crypto-research",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "module": "src/index.ts",
+  "scripts": {
+    "build": "npx @smithery/cli build",
+    "dev": "npx @smithery/cli dev",
+    "check": "npx @biomejs/biome check --write --unsafe"
+  },
+  "keywords": [],
+  "author": "Maxvint",
+  "homepage": "https://github.com/coinsummer/mcp-crypto-research",
+  "license": "ISC",
+  "packageManager": "pnpm@10.12.1",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.3",
+    "axios": "^1.10.0",
+    "dotenv": "^16.5.0",
+    "tsx": "^4.20.3",
+    "zod": "^3.25.67"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.3",
+    "pm2": "^5.3.0",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.4.2"
+  }
+}
