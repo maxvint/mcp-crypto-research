@@ -54,3 +54,55 @@ export interface News {
   category?: string
   tags?: string[]
 }
+
+
+/**
+ * 获取新闻列表输入
+ */
+export interface GetNewsInput {
+  keyword?: string
+  category?: string
+  source?: string
+  startDate?: string
+  endDate?: string
+  limit?: number
+  offset?: number
+  day?: string
+  level?: number
+}
+
+/**
+ * 获取新闻详情输入
+ */
+export interface GetNewsByIdInput {
+  id: string
+}
+
+/**
+ * 获取所有项目的输入接口
+ */
+export interface GetProjectsInput {
+  // 可以添加过滤参数，如分类、标签等
+}
+
+/**
+ * 通过 Twitter 用户名获取项目的输入接口
+ */
+export interface GetProjectByTwitterInput {
+  username: string
+}
+
+/**
+ * 根据 Twitter 用户名获取项目研究报告的输入接口
+ */
+export interface GetProjectReportsByTwitterInput {
+  username: string
+}
+
+/**
+ * 获取报告列表输入
+ */
+export interface GetReportsInput {
+  keyword?: string
+  day?: string
+}

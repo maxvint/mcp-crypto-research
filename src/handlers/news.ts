@@ -4,14 +4,14 @@
 import { researchClient } from '../clients/research.client.js'
 import { ToolResultSchema } from '../types.js'
 import { createSuccessResponse, createErrorResponse } from './utils.js'
-import { GetNewsInput, GetNewsByIdInput } from '../types/news.types.js'
+import { GetNewsInput, GetNewsByIdInput } from '../types.js'
 
 /**
  * 获取新闻列表处理程序
  */
 export const getNewsHandler = async (input: GetNewsInput): Promise<ToolResultSchema> => {
   try {
-    const newsData = await researchClient.getNews({
+    const newsData = await researchClient.searchNews({
       keyword: input.keyword,
       category: input.category,
       source: input.source,
@@ -24,7 +24,7 @@ export const getNewsHandler = async (input: GetNewsInput): Promise<ToolResultSch
     })
     
     // 简化返回的数据，只包含基本信息
-    const simplifiedData = newsData.map(news => ({
+    const simplifiedData = newsData.map((news: any) => ({
       id: news.id,
       title: news.title,
       summary: news.summary,

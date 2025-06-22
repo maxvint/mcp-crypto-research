@@ -2,11 +2,16 @@
   "name": "mcp-crypto-research",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "type": "module",
   "module": "src/index.ts",
   "scripts": {
-    "build": "npx @smithery/cli build",
-    "dev": "npx @smithery/cli dev",
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx watch src/server.ts",
+    "dev:sse": "tsx watch src/sse.ts",
+    "start": "node dist/index.js",
+    "start:sse": "node dist/sse.js",
+    "inspector": "npx @modelcontextprotocol/inspector node dist/index.js",
     "check": "npx @biomejs/biome check --write --unsafe"
   },
   "keywords": [],
@@ -15,15 +20,16 @@
   "license": "ISC",
   "packageManager": "pnpm@10.12.1",
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.12.3",
+    "@modelcontextprotocol/sdk": "^1.13.0",
     "axios": "^1.10.0",
     "dotenv": "^16.5.0",
+    "express": "^5.1.0",
     "tsx": "^4.20.3",
     "zod": "^3.25.67"
   },
   "devDependencies": {
+    "@types/express": "^5.0.3",
     "@types/node": "^24.0.3",
-    "pm2": "^5.3.0",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.4.2"

@@ -4,20 +4,20 @@
 import { researchClient } from '../clients/research.client.js'
 import { ToolResultSchema } from '../types.js'
 import { createSuccessResponse, createErrorResponse } from './utils.js'
-import { GetReportsInput } from '../types/reports.types.js'
+import { GetReportsInput } from '../types.js'
 
 /**
  * 获取研究报告列表处理程序
  */
 export const getReportsHandler = async (input: GetReportsInput): Promise<ToolResultSchema> => {
   try {
-    const reportsData = await researchClient.getReports({
+    const reportsData = await researchClient.searchReports({
       keyword: input.keyword,
       day: input.day
     })
     
     // 简化返回的数据，只包含基本信息
-    const simplifiedData = reportsData.map(report => ({
+    const simplifiedData = reportsData.map((report: any) => ({
       id: report.id,
       title: report.title,
       summary: report.summary,

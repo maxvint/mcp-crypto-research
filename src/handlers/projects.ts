@@ -4,7 +4,7 @@ import {
   GetProjectsInput,
   GetProjectByTwitterInput,
   GetProjectReportsByTwitterInput
-} from '../types/projects.types.js'
+} from '../types.js'
 import { getResearchClient } from '../clients/research.factory.js'
 
 // 获取适当的客户端（真实或模拟）
